@@ -29,7 +29,7 @@ pipeline {
 
         stage('Plan') {
             steps {
-                sh "./terraform init"
+                sh "sudo terraform init"
             }
         }
         stage('Approval') {
