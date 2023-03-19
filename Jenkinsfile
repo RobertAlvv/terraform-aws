@@ -9,17 +9,23 @@ pipeline {
     }
 
    agent  any
-    stages {
-        stage('checkout') {
-            steps {
-                 script{
-                        dir("terraform")
-                        {
-                            git "https://github.com/RobertAlvv/terraform-aws.git"
-                        }
-                    }
-                }
-            }
+    // stages {
+    //     stage('checkout') {
+    //         steps {
+    //              script{
+    //                     dir("terraform")
+    //                     {
+    //                         git "https://github.com/RobertAlvv/terraform-aws.git"
+    //                     }
+    //                 }
+    //             }
+            // }
+  stages {
+    stage('Checkout') {
+      steps {
+        checkout scm
+      }
+    }
 
         stage('Plan') {
             steps {
