@@ -9,17 +9,7 @@ pipeline {
     }
 
    agent  any
-    // stages {
-    //     stage('checkout') {
-    //         steps {
-    //              script{
-    //                     dir("terraform")
-    //                     {
-    //                         git "https://github.com/RobertAlvv/terraform-aws.git"
-    //                     }
-    //                 }
-    //             }
-            // }
+
   stages {
     stage('Checkout') {
       steps {
@@ -29,7 +19,9 @@ pipeline {
 
         stage('Plan') {
             steps {
-                sh "sudo terraform init"
+                sh "curl -LO https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
+                sh "unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
+                sh "./terraform init"
             }
         }
         stage('Approval') {
