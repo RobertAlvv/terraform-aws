@@ -33,7 +33,7 @@ pipeline {
         // sh "curl -LO https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
         // sh "unzip terraform_${TERRAFORM_VERSION}_linux_a    md64.zip -d ${env.WORKSPACE}"
         sh "cd ${TERRAFORM_DIR}"
-        sd "ls"
+        sh "ls"
         sh "terraform init"
       }
     }
