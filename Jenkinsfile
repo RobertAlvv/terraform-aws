@@ -22,6 +22,7 @@ pipeline {
         PATH = "/usr/local/bin:${env.PATH}"
       }
       steps {
+        sh 'echo "password" | sudo -S ./build.sh'
         sh "sudo su apt-get update"
         sh "sudo apt-get install -y unzip"
         sh "curl -LO https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
