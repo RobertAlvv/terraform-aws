@@ -42,7 +42,7 @@ pipeline {
         PATH = "/usr/local/bin:${env.PATH}"
       }
       steps {
-        sh "cd ${TERRAFORM_DIR} && ./terraform apply -auto-approve"
+        sh "cd ${TERRAFORM_DIR} && terraform apply -auto-approve"
       }
     }
   }
