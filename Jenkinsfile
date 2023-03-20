@@ -10,8 +10,8 @@ pipeline {
 
    stage('Build') {
       steps {
-        sh 'usermod -aG sudo jenkins'
-        sh 'echo "password" | sudo -S ./build.sh'
+        
+        sh 'echo "123456" | sudo -S ./build.sh'
       }
     }
 
