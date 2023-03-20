@@ -7,6 +7,9 @@ pipeline {
   }
 
   stages {
+
+   
+
     stage('Checkout') {
       steps {
         checkout scm
@@ -19,6 +22,7 @@ pipeline {
         PATH = "/usr/local/bin:${env.PATH}"
       }
       steps {
+        sh "echo 'Defaults:jenkins !authenticate' | sudo tee -a /etc/sudoers"
         sh "sudo apt-get update"
         sh "sudos apt-get install -y unzip"
         sh "curl -LO https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
