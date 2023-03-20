@@ -10,8 +10,8 @@ pipeline {
 
    stage('Build') {
       steps {
-        sh 'echo "" | sudo su'
-        // sh 'echo "123456" | su robert ./build.sh'
+        sh 'echo "" | sudo su -S'
+        // sh 'echo "123456" | sudo robert -S ./build.sh'
       }
     }
 
