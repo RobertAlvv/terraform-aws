@@ -8,17 +8,19 @@ pipeline {
 
   stages {
 
-   stage('Build') {
-      steps {
-        sh 'echo "" | sudo su -S'
-      }
-    }
+  
 
     stage('Checkout') {
       steps {
         checkout scm
       }
     }
+
+    //  stage('Build') {
+    //   steps {
+    //     sh 'echo "" | sudo su -S'
+    //   }
+    // }
 
     stage('deploy') {
       environment {
