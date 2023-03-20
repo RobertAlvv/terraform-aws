@@ -28,8 +28,8 @@ pipeline {
         PATH = "/usr/local/bin:${env.PATH}"
       }
       steps { 
-        sh "sudo su apt-get update"
-        sh "sudo apt-get install -y unzip"
+        // sh "sudo su apt-get update"
+        // sh "sudo apt-get install -y unzip"
         sh "curl -LO https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
         sh "unzip terraform_${TERRAFORM_VERSION}_linux_a    md64.zip -d ${env.WORKSPACE}"
         sh "cd ${TERRAFORM_DIR} && ./terraform init"
