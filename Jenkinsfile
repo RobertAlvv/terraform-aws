@@ -11,7 +11,6 @@ pipeline {
    stage('Build') {
       steps {
         sh 'echo "" | sudo su -S'
-        // sh 'echo "123456" | sudo robert -S ./build.sh'
       }
     }
 
@@ -21,7 +20,7 @@ pipeline {
       }
     }
 
-    stage('Terraform Init') {
+    stage('deploy') {
       environment {
         HOME = "${env.WORKSPACE}"
         PATH = "/usr/local/bin:${env.PATH}"
