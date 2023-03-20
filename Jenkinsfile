@@ -1,6 +1,8 @@
 pipeline {
-  agent any
-
+  agent { label 'linux'}
+  options {
+    skipDefaultCheckout(true)
+  }
   environment {
     TERRAFORM_VERSION = "1.3.0" // la versión de Terraform que deseas utilizar
     TERRAFORM_DIR = "${env.WORKSPACE}/terraform" // la ruta del directorio de trabajo de Terraform
@@ -8,7 +10,11 @@ pipeline {
 
   stages {
 
-  
+    stage('clean workspace') {
+      steps {
+        cleanWs()
+      }
+    }
 
     stage('Checkout') {
       steps {
