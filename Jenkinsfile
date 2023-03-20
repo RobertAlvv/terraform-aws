@@ -1,6 +1,7 @@
 pipeline {
   agent { label 'linux'}
   options {
+    ansiColor('xterm')
     skipDefaultCheckout(true)
   }
   stages{
@@ -14,9 +15,17 @@ pipeline {
         checkout scm
       }
     }
+
+
+    
     stage('terraform') {
       steps {
-        sh './terraformw apply -auto-approve -no-color'
+        // sh './terraformw apply -auto-approve -no-color'
+        sh "terraform init"
+        sh "terraform plan"
+        sh "terraform apply"
+        
+
       }
     }
   }
