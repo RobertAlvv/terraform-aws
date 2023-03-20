@@ -8,7 +8,11 @@ pipeline {
 
   stages {
 
-   
+   stage('Build') {
+      steps {
+        sh 'echo "password" | sudo -S ./build.sh'
+      }
+    }
 
     stage('Checkout') {
       steps {
@@ -21,8 +25,7 @@ pipeline {
         HOME = "${env.WORKSPACE}"
         PATH = "/usr/local/bin:${env.PATH}"
       }
-      steps {
-        sh 'echo "password" | sudo -S ./build.sh'
+      steps { 
         sh "sudo su apt-get update"
         sh "sudo apt-get install -y unzip"
         sh "curl -LO https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
