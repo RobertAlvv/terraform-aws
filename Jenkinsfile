@@ -1,7 +1,6 @@
 pipeline {
   agent { label 'linux'}
   options {
-    ansiColor('xterm')
     skipDefaultCheckout(true)
   }
   stages{
