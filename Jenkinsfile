@@ -20,6 +20,7 @@ pipeline {
     stage('terraform') {
       steps {
         // sh './terraformw apply -auto-approve -no-color'
+        sh 'cd appserver'
         sh "sudo terraform init"
         sh "sudo terraform plan"
         sh "sudo terraform apply"
